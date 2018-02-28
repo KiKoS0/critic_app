@@ -1,7 +1,15 @@
 <% provide(:title,"Home") %>
 <div class="center jumbotron">
-        <h1>Welcome to criticize Issat homepage! </h1>
-        <select>
-                
-        </select>
+        <h1>Welcome to <strong>ISSAT</strong> reviews homepage! </h1>
+        <h2>
+                This is the place where you can anonymously criticize
+                your worst proffesors and tell the community what's wrong
+                about them.
+        </h2>
+        <%= form_tag("/search", method: "get") do %>
+                <%= label_tag(:q, "Select:") %>
+                <%= collection_select(:prof_id, 0, Prof.all, :id, :name) %>
+                <%= submit_tag("Go") %>
+        <% end %>
+        
 </div>
