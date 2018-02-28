@@ -1,10 +1,13 @@
 class ProfsController < ApplicationController
 
   def show
-    @prof = Prof.find_by(:id => params[:prof_id]["0"])
+    if params[:prof_id]!=nil
+      param = params[:prof_id]["0"]
+    else
+      param = params[:id]
+    end
+    @prof = Prof.find_by(:id => param)
     redirect_to root_path unless @prof!=nil
   end
-  def create
-    redirect_to root_path
-  end
+
 end
