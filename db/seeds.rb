@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Prof.populate
+
+profs = Prof.order(:created_at).take(6)
+
+
+30.times do
+    content = Faker::Lorem.sentence(200)
+    email = Faker::Internet.email
+    name = Faker::Name.name
+    profs.each { |prof| prof.reviews.create!(content: content,typer_email: email,
+                                             typer_name: name)}
+end

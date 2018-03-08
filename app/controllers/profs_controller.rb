@@ -7,7 +7,11 @@ class ProfsController < ApplicationController
       param = params[:id]
     end
     @prof = Prof.find_by(:id => param)
-    redirect_to root_path unless @prof!=nil
+    if @prof!=nil
+      @reviews = @prof.reviews.paginate(page: params[:page])
+    else
+      redirect_to root_path
+    end
   end
 
 end

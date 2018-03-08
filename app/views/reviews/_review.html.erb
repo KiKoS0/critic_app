@@ -1,0 +1,9 @@
+<li id="review-<%= review.id %>">
+    <div class="">
+        <span class="name"><%= review.typer_name if review.typer_name!=nil %></span>
+        <span class="content"><%= review.content %></span>
+        <span class="timestamp">
+        <!-- Posted <%= time_ago_in_words(review.created_at) %> ago.-->
+        Posted on <%= review.created_at.to_date.to_formatted_s(:rfc822)  %>   
+    </div>
+  </li>

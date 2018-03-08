@@ -96,3 +96,31 @@ footer {
     }
   }
 }
+
+
+/* Reviews */
+
+.reviews {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    margin: auto 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .content {
+    display: block;
+    //border: 1px #17203b solid;
+    border-radius: 5px;
+    float:right;
+    padding: 0px 8px;
+  }
+  .timestamp {
+    color: #b3b3b3;
+    display: block;
+    margin-top: 5px;
+  }
+  .name{
+    margin-bottom: 5px;
+  }
+}

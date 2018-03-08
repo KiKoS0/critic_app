@@ -1,4 +1,11 @@
 <% provide(:title, @prof.name) %>
-<h1>
-  <%= @prof.name %>
-</h1>
+<h1><%= @prof.name %></h1>
+  <div class="content">
+    <% if @prof.reviews.any? %>
+      <h3>Reviews (<%= @prof.reviews.count %>)</h3>
+      <ol class="reviews">
+        <%= render @reviews %>
+      </ol>
+      <%= will_paginate @reviews %>
+    <% end %>
+  </div>
