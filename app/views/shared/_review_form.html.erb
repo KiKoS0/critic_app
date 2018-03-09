@@ -1,0 +1,10 @@
+<%= form_for(@review) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_field :typer_name, placeholder: "Name" %>
+    <%= f.hidden_field :prof_id %>
+    <%= f.email_field :typer_email, placeholder: "Email (Optional- Will not be viewed)"%>
+    <%= f.text_area :content, placeholder: "Your opinion" %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>

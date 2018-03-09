@@ -1,11 +1,23 @@
 <% provide(:title, @prof.name) %>
+
 <h1><%= @prof.name %></h1>
+<div class="row">
+  <div class="container">
+    <section class="review_form">
+      <%= render 'shared/review_form' %>
+    </section>
+  </div>
+</div>
   <div class="content">
     <% if @prof.reviews.any? %>
+    <% if @prof.reviews.count!=0 %>
       <h3>Reviews (<%= @prof.reviews.count %>)</h3>
       <ol class="reviews">
         <%= render @reviews %>
       </ol>
       <%= will_paginate @reviews %>
+    <% else %>
+      <h3>No reviews available. Be the first reviewer! </h3>
+    <% end %>
     <% end %>
   </div>
