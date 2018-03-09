@@ -3,11 +3,11 @@ class Review < ApplicationRecord
 
   default_scope -> { order(created_at: :desc) }
 
-  validates :typer_name, presence: true, length: { maximum:50}
-  validates :typer_email, presence: false, length: { maximum:50}
+  validates :name, presence: true, length: { maximum:50}
+  validates :email, presence: false, length: { maximum:50}
 
   validates :prof_id, presence: true
-  validates :content, presence: true, length: { maximum:350}
+  validates :content, presence: true, length: { maximum:350000}
 
 
 end

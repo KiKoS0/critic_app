@@ -15,6 +15,6 @@ profs = Prof.order(:created_at).take(6)
     content = Faker::Lorem.sentence(200)
     email = Faker::Internet.email
     name = Faker::Name.name
-    profs.each { |prof| prof.reviews.create!(content: content,typer_email: email,
-                                             typer_name: name)}
+    profs.each { |prof| prof.reviews.create!(content: content,email: email,
+                                             name: name)}
 end
