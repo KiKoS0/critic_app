@@ -1,15 +1,22 @@
 class ReviewsController < ApplicationController
-
+  include ApplicationHelper
 
   def create
     @prof = Prof.find (params[:review][:prof_id])
     @review = @prof.reviews.build(review_params)
-    if @review.save
-      flash[:success] = "Review Added!"
-      redirect_to @prof
+    ipHash = alreadyReviewed
+    if  ipHash[:exist]==false
+      @review.ip = ipHash[:ip]
+      if @review.save
+        flash[:success] = "Review Added!"
+        redirect_to @prof
+      else
+        @reviews = @prof.reviews.paginate(page: 1)
+        render 'profs/show'
+      end
     else
-      @reviews = @prof.reviews.paginate(page: 1)
-      render 'profs/show'
+      flash[:info] = "You already reviewed!"
+      redirect_to @prof
     end
   end
 

@@ -1,13 +1,17 @@
 <% provide(:title, @prof.name) %>
 
 <h1><%= @prof.name %></h1>
-<div class="row">
-  <div class="container">
-    <section class="review_form">
-      <%= render 'shared/review_form' %>
-    </section>
+<% @alreadyReviewed=alreadyReviewed %>
+<% if @alreadyReviewed[:exist]==false %>
+  <div class="row">
+    <div class="container">
+      <section class="review_form">
+        <%= render 'shared/review_form' %>
+      </section>
+    </div>
   </div>
-</div>
+<% end %>
+
   <div class="content">
     <% if @prof.reviews.any? %>
     <% if @prof.reviews.count!=0 %>

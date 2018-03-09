@@ -166,10 +166,13 @@ footer {
     float:right;
     padding: 0px 10px;
   }
-  .timestamp {
+  .timestamp,.my-review {
     color: #b3b3b3;
     display: block;
     margin-top: 5px;
+  }
+  .my-review{
+    font-size: small;
   }
   .name{
     margin-bottom: 5px;

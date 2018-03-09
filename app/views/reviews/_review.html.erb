@@ -1,9 +1,10 @@
 <li id="review-<%= review.id %>">
-    <div class="">
+        <% if @alreadyReviewed[:ip] == review.ip %>
+          <span class="my-review">Your Review</span>
+        <% end %>
         <span class="name"><%= review.name if review.name!=nil %></span>
         <span class="content"><%= review.content %></span>
         <span class="timestamp">
         <!-- Posted <%= time_ago_in_words(review.created_at) %> ago.-->
         Posted on <%= review.created_at.to_date.to_formatted_s(:rfc822)  %>
-    </div>
   </li>
