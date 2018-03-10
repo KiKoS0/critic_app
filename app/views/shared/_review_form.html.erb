@@ -2,18 +2,18 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
     <%= f.label :name, 'Name(required):' %>
-    <%= f.text_field :name, placeholder: "Anonymous" %>
+    <%= f.text_field :name, placeholder: "will be viewed" %>
     <%= f.hidden_field :prof_id %>
     <br>
-    <%= f.label :email, 'Email(Optional):' %>
+    <%= f.label :email, 'Email(optional):' %>
     <%= f.email_field :email, placeholder: "will not be viewed"%>
     <%= f.text_area :content, placeholder: "Review..." %>
     <%= f.label 'flag', 'Is your review positive?' %>
     <br>
-    <%= f.radio_button :like, true%>
-    <%= f.label 'flag_true', 'YES' %>
-    <%= f.radio_button :like, false%>
-    <%= f.label 'flag_false', 'NO' %>
+    <%= f.radio_button :like, true %>
+    <%= f.label 'flag_true', 'YES' , class: "label-yes-no" %>
+    <%= f.radio_button :like, false %>
+    <%= f.label 'flag_false', 'NO', class: "label-yes-no" %>
 
 
 

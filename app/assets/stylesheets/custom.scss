@@ -25,7 +25,6 @@ textarea {
     margin-bottom: 10px;
   }
 }
-
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -33,6 +32,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
+  padding-bottom: 10px; 
+  border-bottom: 1px solid #e2dada;
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
@@ -51,6 +52,11 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+h3.no-reviews{
+  border-top: #e8e8e8 1px solid;
+  padding-top: 10px;
 }
 
 
@@ -73,7 +79,9 @@ p {
 
  textarea,  .uneditable-input {
   border: 1px solid #bbb;
+  display: block;
   width: 100%;
+  height: 200px;
   margin-bottom: 15px;
   margin-top: 10px;
   @include box_sizing;
@@ -93,9 +101,19 @@ input {
 }
 
 .field_with_errors {
+  display: inline;
   @extend .has-error;
   .form-control {
     color: $state-danger-text;
+  }
+  label {
+    color: #dd0b0bb9;
+  }
+  textarea{
+    background-color: #f88a8ab9;
+  }
+  + label.label-yes-no{
+    color: #dd0b0bb9;
   }
 }
 
@@ -125,6 +143,7 @@ footer {
   color: $gray-light;
   a {
     color: $gray;
+    padding: 10px;
     &:hover {
       color: $gray-darker;
     }
@@ -164,6 +183,7 @@ footer {
     margin: 10px auto;
     border-radius: 5px;
     padding: 5px 10px;
+    overflow-wrap: break-word;
   }
   .timestamp,.my-review {
     color: #b3b3b3;
