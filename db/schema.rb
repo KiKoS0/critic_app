@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309140632) do
+ActiveRecord::Schema.define(version: 20180309183934) do
 
   create_table "profs", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20180309140632) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ip"
+    t.boolean "like"
     t.index ["ip", "prof_id"], name: "index_reviews_on_ip_and_prof_id", unique: true
     t.index ["prof_id", "created_at"], name: "index_reviews_on_prof_id_and_created_at"
     t.index ["prof_id"], name: "index_reviews_on_prof_id"

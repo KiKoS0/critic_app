@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
         flash[:success] = "Review Added!"
         redirect_to @prof
       else
-        @reviews = @prof.reviews.paginate(page: 1)
+        @reviews = @prof.reviews.paginate(page: params[:page])
         render 'profs/show'
       end
     else
@@ -28,6 +28,6 @@ class ReviewsController < ApplicationController
   private
 
     def review_params
-      params.require(:review).permit(:content, :email, :name)
+      params.require(:review).permit(:content, :email, :name,:like )
     end
 end

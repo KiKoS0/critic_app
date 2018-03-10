@@ -163,8 +163,7 @@ footer {
     border: 1px #17203b solid;
     margin: 10px auto;
     border-radius: 5px;
-    float:right;
-    padding: 0px 10px;
+    padding: 5px 10px;
   }
   .timestamp,.my-review {
     color: #b3b3b3;
@@ -177,4 +176,15 @@ footer {
   .name{
     margin-bottom: 5px;
   }
+}
+
+
+
+/* Like or not like */
+
+span.like{
+  background-color: #ddffcc;
+}
+span.not-like{
+  background-color: #ffcccc;
 }

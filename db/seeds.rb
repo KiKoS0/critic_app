@@ -17,7 +17,8 @@ profs = Prof.order(:created_at).take(6)
     name = Faker::Name.name
     profs.each { |prof|
       ip = Faker::Internet.ip_v4_address
-      prof.reviews.create!(content: content,email: email, name: name,ip: ip)
+      prof.reviews.create!(content: content,email: email, name: name,ip: ip,
+                           like: [true, false].sample)
       }
 
 
