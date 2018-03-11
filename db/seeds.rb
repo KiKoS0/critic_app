@@ -8,10 +8,10 @@
 
 Prof.populate
 
-profs = Prof.order(:created_at).take(6)
+profs = Prof.order(:created_at).take(100)
 
 
-30.times do
+50.times do
     content = Faker::Lorem.sentence(200)
     email = Faker::Internet.email
     name = Faker::Name.name
