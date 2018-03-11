@@ -11,7 +11,7 @@ class Review < ApplicationRecord
   validates :ip, presence: true, length: {maximum:50}
   
   validates :prof_id, presence: true
-  validates :content, presence: true, length: { maximum:350000}
+  validates :content, presence: true, length: { maximum:5000}
 
   validates_inclusion_of :like, in: [true, false], message: "must be present"
 
