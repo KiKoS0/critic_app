@@ -8,18 +8,17 @@
 
 Prof.populate
 
-profs = Prof.order(:created_at).take(100)
-
-
-50.times do
-    content = Faker::Lorem.sentence(200)
-    email = Faker::Internet.email
-    name = Faker::Name.name
-    profs.each { |prof|
-      ip = Faker::Internet.ip_v4_address
-      prof.reviews.create!(content: content,email: email, name: name,ip: ip,
-                           like: [true, false].sample)
-      }
+if Rails.env.development?
+  profs = Prof.order(:created_at).take(100)
+  50.times do
+      content = Faker::Lorem.sentence(200)
+      email = Faker::Internet.email
+      name = Faker::Name.name
+      profs.each { |prof|
+        ip = Faker::Internet.ip_v4_address
+        prof.reviews.create!(content: content,email: email, name: name,ip: ip,
+                            like: [true, false].sample)
+        }
+  end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 end
-
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
