@@ -3,21 +3,25 @@ class ReviewsController < ApplicationController
 
 
   def create
-    @prof = Prof.find (params[:review][:prof_id])
-    @review = @prof.reviews.build(review_params)
-    ipHash = alreadyReviewed
-    if  ipHash[:exist]==false
-      @review.ip = ipHash[:ip]
-      if @review.save
-        flash[:success] = "Review Added!"
-        redirect_to @prof
+    begin
+      @prof = Prof.find (params[:review][:prof_id])
+      @review = @prof.reviews.build(review_params)
+      ipHash = alreadyReviewed
+      if  ipHash[:exist]==false
+        @review.ip = ipHash[:ip]
+        if @review.save
+          flash[:success] = "Review Added!"
+          redirect_to @prof
+        else
+          @reviews = @prof.reviews.paginate(page: params[:page])
+          render 'profs/show'
+        end
       else
-        @reviews = @prof.reviews.paginate(page: params[:page])
-        render 'profs/show'
+        flash[:info] = "You already reviewed!"
+        redirect_to @prof
       end
-    else
-      flash[:info] = "You already reviewed!"
-      redirect_to @prof
+    rescue  RecordNotFound
+      render 'profs/show'
     end
   end
 
