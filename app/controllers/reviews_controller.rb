@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   include ApplicationHelper
 
+
   def create
     @prof = Prof.find (params[:review][:prof_id])
     @review = @prof.reviews.build(review_params)
