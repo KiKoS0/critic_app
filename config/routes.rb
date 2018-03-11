@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get    '/search',   to: 'profs#show'
   resources :profs, only: [:show]
   resources :reviews, only: [:create, :destroy]
+  resources :reports, only: [:create]
 end
